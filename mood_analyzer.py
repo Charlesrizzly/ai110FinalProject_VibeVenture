@@ -40,14 +40,15 @@ class MoodAnalyzer:
         """
         Convert raw text into a list of tokens the model can work with.
         """
-        tokens = []
+        cleaned  = text.strip().lower()
+        tokens = cleaned.split()
         return tokens
 
     # ---------------------------------------------------------------------
     # Scoring logic
     # ---------------------------------------------------------------------
 
-    def score_text(self, text: str) -> int:
+    def score_text(self, text: List[str]) -> int:
         """
         Compute a numeric "mood score" for the given text.
 
@@ -62,8 +63,79 @@ class MoodAnalyzer:
           - Treat emojis or slang (":)", "lol", "💀") as strong signals
         """
         score = 0
+        mixed = False
 
-        return score
+        positive_words_weight = {
+                "happy": 0.1,
+                "great": 0.2,
+                "good":  0.1,
+                "love":  0.3,
+                "excited": 0.3,
+                "awesome": 0.2,
+                "fun": 0.2,
+                "chill": 0.1,
+                "relaxed": 0.1,
+                "amazing": 0.3
+        }
+        negative_words_weight = {
+              "sad": -0.1,
+              "bad": -0.1,
+              "terrible": -0.2,
+              "awful": -0.2,
+              "angry": -0.2,
+              "upset": -0.1,
+              "tired": -0.1,
+              "stressed": -0.2,
+              "hate": -0.1,
+              "boring": -0.05
+        }
+        mixed_words = {
+            "but",
+            "however", 
+            "although",
+            "despite",  
+            "regardless" 
+        }
+        booster_words = {
+           "very": 1.1,
+           "really": 1.1,
+           "extremely": 1.3,
+           "utterly": 1.3,
+           "so" : 1.2
+        }
+        # implement a stack to evaluate negation
+        def scorer(text):
+           negation = 1
+           boost = 1
+           score = 0
+           for i in text:
+              if i == 'not':
+                negation *= -1
+              if i in booster_words:
+                 boost *= booster_words[i]
+              if i in self.positive_words:
+                score += negation * boost * positive_words_weight[i]
+                negation *= -1
+                boost = 1
+              if i in self.negative_words:
+                score += negation * boost * negative_words_weight[i]
+                negation *= -1
+                boost = 1
+                 
+           return score
+
+
+        # check if text has a mixed word in it
+        def mixed_word_checker(text):
+          for w in text:
+            if w in mixed_words: 
+              return True
+          return False
+        
+        score = scorer(text)
+             
+        mixed = mixed_word_checker(text)# If there is a mixed word -> true, else -> false    
+        return (score, mixed)
 
     # ---------------------------------------------------------------------
     # Label prediction
@@ -85,7 +157,20 @@ class MoodAnalyzer:
         Just remember that whatever labels you return should match the labels
         you use in TRUE_LABELS in dataset.py if you care about accuracy.
         """
-        return "neutral"
+        processed_text = self.preprocess(text)
+        score = self.score_text(processed_text)[0]
+        mixed = self.score_text(processed_text)[1]
+        print(score)
+
+        if -0.2 <= score <= 0.2 and mixed:
+           return "mixed"
+        elif score == 0 and not mixed:
+           return "neutral"
+        if score < 0:
+           return "negative"
+        if score > 0:
+           return "positive"
+      
 
     # ---------------------------------------------------------------------
     # Explanations (optional but recommended)
@@ -108,3 +193,4 @@ class MoodAnalyzer:
         before you implement it.
         """
         return "Explanation not yet implemented!"
+

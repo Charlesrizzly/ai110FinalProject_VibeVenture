@@ -22,7 +22,7 @@ POSITIVE_WORDS = [
     "fun",
     "chill",
     "relaxed",
-    "amazing",
+    "amazing"
 ]
 
 NEGATIVE_WORDS = [
@@ -50,6 +50,28 @@ SAMPLE_POSTS = [
     "This is fine",
     "So excited for the weekend",
     "I am not happy about this",
+    "This is beautiful",
+    "This place is so nice",
+    "Feeling like the best version of myself",
+    "Feeling down today",
+    "I'm a bit anxious",
+    "What a horrible day",
+    "No negativity, just good vibes",
+    "I don't know how I'm feeling today",
+    "I think I'm feeling good",
+    "I'm either really anxious or really excited 🫠",
+    "This is exhilarating",
+    "I feel nothing 🫩",
+    "What a wonderfully trashy day",
+    "I could say I'm feeling good but I'd be lying",
+    "Is any day not a good day ",
+    "It's aight",
+    "I am really happy",
+    "I am sad",
+    "I am not good",
+    "I am not in a bad mood",
+    "I am really angry right now",
+
 ]
 
 # Human labels for each post above.
@@ -65,6 +87,29 @@ TRUE_LABELS = [
     "neutral",   # "This is fine"
     "positive",  # "So excited for the weekend"
     "negative",  # "I am not happy about this"
+    "positive", # "This is beautiful"
+    "positive", #  "This place is so nice"
+    "positive", # "Feeling like the best version of myself"
+    "negative", #  "Feeling down today"
+    "negative", # "I'm a bit anxious"
+    "negative", # "What a horrible day"
+    "positive", # "No negativity, just good vibes"
+    "mixed", # "I don't know how I'm feeling today"
+    "positive", # "I think I'm feeling good"
+    "mixed", # "I'm either really anxious or really excited 🫠"
+    "positive", # "This is exhilarating"
+    "negative", # "I feel nothing 🫩"
+    "negative", # "What a  wonderfully trashy day"
+    "negative", # "I could say I'm feeling good but I'd be lying"
+    "positive", # "Is any day not a good day"
+    "neutral", # "It's aight"
+    "positive", # "I'm really happy"
+    "negative", # "I am sad"
+    "negative", # "I am not good"
+    "positive", # "I am not in a bad mood"
+    "negative", # "I am really angry right now"
+    
+
 ]
 
 # TODO: Add 5-10 more posts and labels.
