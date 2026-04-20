@@ -69,18 +69,25 @@ def evaluate_ml_model(posts: List[str], labels: List[str]) -> float:
     vectorizer, model = train_ml_model(posts, labels)
     correct = 0
     total = len(posts)
+    confidences = []
 
     print("=== ML Model Evaluation on SAMPLE_POSTS (5-mood system) ===")
     for text, true_label in zip(posts, labels):
         X = vectorizer.transform([text])
         predicted_label = model.predict(X)[0]
+        proba = model.predict_proba(X)[0]
+        confidence = max(proba)
+        confidences.append(confidence)
+
         is_correct = predicted_label == true_label
         if is_correct:
             correct += 1
-        print(f'"{text}" -> predicted={predicted_label}, true={true_label}')
+        print(f'"{text}" -> predicted={predicted_label}, true={true_label}, confidence={confidence:.2f}')
 
     accuracy = correct / total if total > 0 else 0.0
+    avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
     print(f"\nML model accuracy on SAMPLE_POSTS: {accuracy:.2f}")
+    print(f"Average confidence: {avg_confidence:.2f}")
     return accuracy
 
 
