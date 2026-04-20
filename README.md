@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/e3a113d0-2052-416b-908b-77dc4f3c8672
+
 # The Mood Machine — AI-Powered Mood Classification & Activity Recommender
 
 ## Overview
@@ -77,7 +81,7 @@ flowchart TD
 ## DEMO
 -[
 
-https://github.com/user-attachments/assets/246031d3-6b73-4af1-8adc-8bbb040266e2
+https://github.com/user-attachments/assets/7b8df8f8-1882-486d-a822-08557d250609
 
 ] [insert here]
 
