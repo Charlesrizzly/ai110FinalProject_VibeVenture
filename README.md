@@ -75,7 +75,11 @@ flowchart TD
 
 ---
 ## DEMO
--[] [insert here]
+-[
+
+https://github.com/user-attachments/assets/246031d3-6b73-4af1-8adc-8bbb040266e2
+
+] [insert here]
 
 ## Architecture Overview
 
