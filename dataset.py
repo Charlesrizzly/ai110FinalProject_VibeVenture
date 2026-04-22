@@ -118,6 +118,15 @@ SAMPLE_POSTS = [
     "I am really angry right now",
     # New 25 posts for better mood coverage
     # HAPPY posts (5)
+    "happy to be here",
+    "Life's great",
+    "great day",
+    "Great",
+    "Lovely",
+    "happy",
+    "wonderful",
+    "amazing",
+    "good",
     "Just got promoted and celebrating with my friends 🎉🥳",
     "Life is genuinely amazing right now, no cap fr fr",
     "Woke up feeling grateful for absolutely everything 😊✨",
@@ -136,6 +145,15 @@ SAMPLE_POSTS = [
     "Everything is due at once and I'm physically incapable help",
     "Running on 2 hours of sleep, 3 coffees, and pure panic 🤪",
     # SAD posts (5)
+    "I feel sad",
+    "Life's so sad right now",
+    "sad day",
+    "Terrible",
+    "Horrible",
+    "sad",
+    "bad",
+    "awful",
+    "having an awful day",
     "Yeah everything is cool, totally not breaking inside lol 🙂",
     "Loneliness is hitting different today",
     "Just realized I lost something I can never get back 💔",
@@ -237,6 +255,15 @@ TRUE_LABELS = [
     "positive",       # "I am not in a bad mood"
     "negative_relax", # "I am really angry right now"
     # New 25 complex posts
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
+    "positive", 
     "positive",       # "Just got promoted and celebrating with my friends 🎉🥳"
     "positive",       # "Life is genuinely amazing right now, no cap fr fr"
     "positive",       # "Woke up feeling grateful for absolutely everything 😊✨"
@@ -252,6 +279,15 @@ TRUE_LABELS = [
     "negative_relax", # "Drowning in deadlines and responsibilities rn 😰"
     "negative_relax", # "Everything is due at once and I'm physically incapable help"
     "negative_relax", # "Running on 2 hours of sleep, 3 coffees, and pure panic 🤪"
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
+    "negative_cheerup",
     "negative_cheerup",  # "Yeah everything is cool, totally not breaking inside lol 🙂"
     "negative_cheerup",  # "Loneliness is hitting different today"
     "negative_cheerup",  # "Just realized I lost something I can never get back 💔"

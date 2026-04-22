@@ -136,14 +136,14 @@ def run_interactive_loop(use_ml: bool = False) -> None:
 
         print(f"\nDetected mood: {mood}")
 
-        location = input("What's your location? (e.g. Austin TX): ").strip()
+        location = input("What's your specific location? (e.g. 123 Main St, Austin TX): ").strip()
         if not location:
             print("No location provided — skipping activity search.\n")
             continue
 
         print("\nSearching for activities...\n")
         activities = get_activities(mood, location)
-        print(format_response(mood, activities))
+        print(format_response(mood, activities, user_location=location))
         print()
 
 
